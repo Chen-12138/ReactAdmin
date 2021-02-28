@@ -13,7 +13,6 @@ import User from '../user/user'
 import Bar from '../charts/bar'
 import Line from '../charts/line'
 import Pie from '../charts/pie'
-import NotFound from '../not-found/not-found'
 
 const { Footer, Sider, Content } = Layout;
 
@@ -45,7 +44,6 @@ export default class Admin extends Component {
                             <Route path="/charts/bar" component={Bar}/>
                             <Route path="/charts/pie" component={Pie}/>
                             <Route path="/charts/line" component={Line}/>
-                            <Route component={NotFound}/>
                         </Switch>
                     </Content>
                     <Footer style={{textAlign:'center',color:'#ccc'}}>推荐使用谷歌浏览器，可以获得更佳页面操作体验</Footer>

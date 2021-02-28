@@ -1,0 +1,16 @@
+.left-nav .left-nav-header {
+  background-color: #002140;
+  overflow: hidden;
+}
+.left-nav .left-nav-header img {
+  display: block;
+  margin: 10px auto 10px;
+  width: 80px;
+  height: 80px;
+}
+.left-nav .left-nav-header h1 {
+  text-align: center;
+  font-size: 28px;
+  color: white;
+  margin-bottom: 20px;
+}

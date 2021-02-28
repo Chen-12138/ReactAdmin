@@ -4,7 +4,6 @@ import Img from '../../assets/images/bg.png'
 import menuList from '../../config/menuConfig';
 import './index.less';
 import { Menu, Icon } from 'antd';
-import {connect} from 'react-redux'
 import {
   AppstoreOutlined,
   MenuUnfoldOutlined,
@@ -16,8 +15,8 @@ import {
   HomeOutlined
 } from '@ant-design/icons';
 import memoryUtils from '../../utils/memoryUtils'
-import {setHeadTitle} from '../../redux/action'
-const { SubMenu } = Menu
+const { SubMenu } = Menu;
+
 
 
 class LeftNav extends Component {
@@ -81,17 +80,9 @@ class LeftNav extends Component {
             if(this.hasAuth(item)){
                 // 向pre中添加<Menu.Item>
                 if(!item.children) {
-                    // 判断item是否是当前对应的item
-                    if (item.key===path || path.indexOf(item.key)===0) {
-                        // 更新headTitle状态
-                        this.props.setHeadTitle(item.title)
-                    }
-
                     pre.push((
                         <Menu.Item key={item.key} icon={<HomeOutlined />}>
-                            <Link to={item.key}
-                            onClick={() => {this.props.setHeadTitle(item.title)}}
-                            >{item.title}</Link>
+                            <Link to={item.key}>{item.title}</Link>
                         </Menu.Item>
                     ))
                 } else {
@@ -172,7 +163,4 @@ withRouter高阶组件：
 包装非路由组件，返回一个新的组件
 新的组件向非路由组件传递3个属性：history/location/match
 */
-export default connect(
-    state => ({}),
-    {setHeadTitle}
-)(withRouter(LeftNav))
+export default withRouter(LeftNav)

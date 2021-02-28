@@ -7,7 +7,6 @@ import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
 import { Modal, Button } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import {connect} from 'react-redux'
 
 import './index.less'
 
@@ -81,10 +80,8 @@ class Header extends Component {
 
         const username = memoryUtils.user.username
 
-        const title = this.props.headTitle
-
         // 得到当前需要显示的title
-        // const title = this.getTitle()
+        const title = this.getTitle()
         
         return (
             <div className="header">
@@ -105,7 +102,4 @@ class Header extends Component {
     }
 }
 
-export default connect(
-    state => ({headTitle: state.headTitle}),
-    {}
-)(withRouter(Header))
+export default withRouter(Header)

@@ -6,11 +6,9 @@ import './login.less'
 import { reqLogin } from '../../api'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils';
-import {connect} from 'react-redux'
-import {login} from '../../redux/action'
 
 /* 登录的路由组件 */
-class Login extends Component {
+export default class Login extends Component {
     // 通过ref获取表单
     formRef = React.createRef();
     
@@ -30,7 +28,7 @@ class Login extends Component {
             storageUtils.saveUser(user) //保存到local
 
             // 跳转到管理界面(不需要回退)
-            this.props.history.replace('/home')
+            this.props.history.replace('/')
 
         } else {
             message.error(result.msg)
@@ -46,7 +44,7 @@ class Login extends Component {
     render() {
 
         // 如果用户已经登录，自动跳转到管理界面
-        const user = this.props.user
+        const user = memoryUtils.user
         if(user && user._id) {
             return <Redirect to='/'/>
         }
@@ -132,8 +130,3 @@ class Login extends Component {
         )
     }
 }
-
-export default  connect(
-    state => ({user:state.user}),
-    {login}
-)(Login)

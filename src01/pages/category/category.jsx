@@ -132,13 +132,12 @@ export default class Category extends Component {
             this.setState({
                 showStatus:0
             })
-            
-            
+
             // 收集数据，并提交添加分类的请求
             const { parentId, categoryName } = values
-            
+
             const res = await reqAddCategory(parentId,categoryName)
-            
+
             // 清除输入数据
             this.form.resetFields()
 
@@ -198,7 +197,7 @@ export default class Category extends Component {
     render() {
 
         // 读取状态数据
-        const {categorys, subCategorys, parentId, parentName, loading, showStatus} = this.state
+        const {categorys,subCategorys,parentId,parentName,loading,showStatus} = this.state
         // 读取指定的分类
         const category = this.category || {}
 

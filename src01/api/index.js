@@ -44,7 +44,7 @@ export const reqCategory = (categoryId) => ajax(BASE + '/manage/category/info', 
 export const reqDeleteImg = (name) => ajax(BASE + '/manage/img/delete', {name}, "POST")
 
 // 添加商品
-export const reqAddOrUpdateProduct = (product) => ajax(BASE + '/manage/product/' + (product._id ? 'update' : 'add'), product, 'POST')
+export const reqAddOrUpdateProduct = (product) => ajax(BASE + '/manage/product/' + (product._id ? 'update' : 'add'), {product}, 'POST')
 
 // 获取所有角色的列表
 export const reqRoles = () => ajax(BASE + '/manage/role/list')
