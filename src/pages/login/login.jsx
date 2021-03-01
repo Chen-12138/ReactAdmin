@@ -20,21 +20,22 @@ class Login extends Component {
         // 获取表单项的输入数据
         const values = form.getFieldsValue()
         const {username, password} = values
-        const result = await reqLogin(username, password)
-        if(result.status===0) {
-            message.success('登录成功')
+        this.props.login(username, password)
+        // const result = await reqLogin(username, password)
+        // if(result.status===0) {
+        //     message.success('登录成功')
 
-            // 保存user
-            const user = result.data
-            memoryUtils.user = user //保存在内存中
-            storageUtils.saveUser(user) //保存到local
+        //     // 保存user
+        //     const user = result.data
+        //     memoryUtils.user = user //保存在内存中
+        //     storageUtils.saveUser(user) //保存到local
 
-            // 跳转到管理界面(不需要回退)
-            this.props.history.replace('/home')
+        //     // 跳转到管理界面(不需要回退)
+        //     this.props.history.replace('/home')
 
-        } else {
-            message.error(result.msg)
-        }
+        // } else {
+        //     message.error(result.msg)
+        // }
     }
 
     /* 

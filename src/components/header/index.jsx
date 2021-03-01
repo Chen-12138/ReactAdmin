@@ -8,6 +8,7 @@ import storageUtils from '../../utils/storageUtils'
 import { Modal, Button } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import {connect} from 'react-redux'
+import { loginOut } from "../../redux/action";
 
 import './index.less'
 
@@ -55,7 +56,7 @@ class Header extends Component {
             //   console.log('OK');
             // 删除保存的user数据
             storageUtils.removeUser()
-            memoryUtils.user = {}
+            this.props.loginOut()
             // 跳转到login
             this.props.history.replace('/login')
             }
@@ -79,7 +80,7 @@ class Header extends Component {
 
         const {currentTime} = this.state
 
-        const username = memoryUtils.user.username
+        const username = this.props.user.username
 
         const title = this.props.headTitle
 
@@ -106,6 +107,9 @@ class Header extends Component {
 }
 
 export default connect(
-    state => ({headTitle: state.headTitle}),
-    {}
+    state => ({
+        headTitle: state.headTitle,
+        user:state.user
+    }),
+    {loginOut}
 )(withRouter(Header))

@@ -27,7 +27,7 @@ export default class AddForm extends Component {
     render() {
 
         const {categorys, parentId} = this.props
-        debugger
+        // console.log(parentId)
 
         return (
             <Form

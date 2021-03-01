@@ -6,7 +6,8 @@
 import { 
     SET_HEAD_TITLE,
     RECEIVE_USER,
-    SHOW_ERROR_MSG
+    SHOW_ERROR_MSG,
+    LOGIN_OUT
 } from "./action-types";
 import { reqLogin } from '../api'
 import { message } from "antd";
@@ -49,3 +50,8 @@ export const login = (username,password) => {
         
     }
 }
+
+/* 
+退出登录action
+*/
+export const loginOut = (user) => ({type:LOGIN_OUT,data:user})

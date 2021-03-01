@@ -71,9 +71,9 @@ class LeftNav extends Component {
         //得到当前请求的路由路径
         let path = this.props.location.pathname
 
-        if(path.indexOf('/product')===0){
-            path = '/product'
-        }
+        // if(path.indexOf('/product')===0){
+        //     path = '/product'
+        // }
 
         return menuList.reduce((pre, item) => {
 
@@ -83,8 +83,7 @@ class LeftNav extends Component {
                 if(!item.children) {
                     // 判断item是否是当前对应的item
                     if (item.key===path || path.indexOf(item.key)===0) {
-                        // 更新headTitle状态
-                        this.props.setHeadTitle(item.title)
+                        this.props.setHeadTitle(item.title);
                     }
 
                     pre.push((
@@ -123,7 +122,12 @@ class LeftNav extends Component {
     render() {
 
         //得到当前请求的路由路径
-        const path = this.props.location.pathname
+        let path = this.props.location.pathname
+
+        if(path.indexOf('/product')===0){
+            path = '/product'
+        }
+        
         // 得到需要打开菜单项的key
         const openKey = this.openKey
         return (

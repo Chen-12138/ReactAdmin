@@ -7,7 +7,8 @@ import storageUtils from "../../src/utils/storageUtils"
 import { 
     SET_HEAD_TITLE,
     RECEIVE_USER,
-    SHOW_ERROR_MSG
+    SHOW_ERROR_MSG,
+    LOGIN_OUT
  } from "./action-types";
 
 /* 
@@ -34,6 +35,8 @@ function user(state=initUser,action) {
         case SHOW_ERROR_MSG:
             const errorMsg = action.errorMsg
             return {...state,errorMsg}
+        case LOGIN_OUT:
+            return {}
         default:
             return state
     }

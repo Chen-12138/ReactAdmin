@@ -41,7 +41,7 @@ export default class AuthForm extends Component {
 
         // 根据传入角色的menus生成初始状态
         const {menus} = this.props.role
-        console.log(menus)
+        // console.log(menus)
         this.state = {
             checkedKeys: menus
         }
@@ -63,11 +63,11 @@ export default class AuthForm extends Component {
     render() {
         const {role} = this.props
         const {checkedKeys} = this.state
-
+        // console.log(role.name)
         return (
             <Form
             initialValues={{
-                name:role.name
+                roleName:role.name
             }}
             >
                 <Item
